@@ -46,14 +46,14 @@ body {
   font-family: Fira Code , Segoe UI , Tahoma , Geneva , Verdana , sans-serif;
 }
 
-/* input {
+input {
   background-color: #006c54;
   border: 2px solid #00c390;
   border-radius: 4px;
   box-sizing: border-box;
+  color: white;
   margin: 10px 0;
   padding: 8px 20px;
-  color: white;
   width: 100%;
 }
 
@@ -63,20 +63,19 @@ input::placeholder {
 
 button {
   background-color: #0040dd;
+  border: #0040dd;
+  border-radius: 4px;
   color: white;
   padding: 5px 10px;
-  border-radius: 4px;
-  border: #0040dd;
 }
 
-button:hover {
+/* button:hover {
   background-color: #3b518a;
   color: white;
   cursor: pointer;
 }
 
-button:disabled,
-button[ disabled ] {
+button:disabled, button[ disabled ] {
   background-color: #5883f1;
   border: #0040dd;
   color: white;

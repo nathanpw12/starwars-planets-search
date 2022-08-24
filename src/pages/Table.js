@@ -3,15 +3,24 @@ import PlanetsContext from '../context/planetsContext';
 
 function Table() {
   const { planetsList, getPlanets } = useContext(PlanetsContext);
-
   getPlanets();
 
-  console.log(getPlanets);
+  const { setFilteredNameState: { filterByName: { filteredName },
+    setFilteredName } } = useContext(PlanetsContext);
 
   return (
     <div>
-      <h1>Planets Search</h1>
+      <h1>StarWars Planets Search</h1>
+      <input
+        type="text"
+        data-testid="name-filter"
+        placeholder="search for a planet here"
+        value={ filteredName }
+        onChange={ (e) => setFilteredName(e.target.value) }
+      />
+
       <table>
+
         <thead>
           <tr>
             <th>Name</th>
@@ -30,10 +39,9 @@ function Table() {
           </tr>
         </thead>
 
-        {planetsList.length > 0 && planetsList.map((data) => (
-
-          <tbody key={ data.name }>
-            <tr>
+        <tbody>
+          {planetsList.filter((data) => data.name.includes(filteredName)).map((data) => (
+            <tr key={ data.name }>
               <td>{data.name}</td>
               <td>{data.rotation_period}</td>
               <td>{data.orbital_period}</td>
@@ -45,11 +53,10 @@ function Table() {
               <td>{data.population}</td>
               <td>{data.films}</td>
               <td>{data.created}</td>
-              <td>{data.edited}</td>
+              <td>{data.edite}</td>
               <td>{data.url}</td>
-            </tr>
-          </tbody>
-        ))}
+            </tr>))}
+        </tbody>
 
       </table>
     </div>
