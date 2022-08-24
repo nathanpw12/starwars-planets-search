@@ -39,3 +39,63 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: #272a35;
+  color: white;
+  font-family: 'Fira Code', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input  {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 2px solid #00c390;
+  border-radius: 4px;
+  background-color: #006c54;
+  color: white;
+}
+
+input::placeholder{
+  color: rgba(224, 249, 237, 0.665);
+}
+
+button {
+  background-color: #0040dd;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: #0040dd;
+}
+
+button:hover {
+  background-color: #3b518a;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:disabled,
+button[disabled]{
+  background-color: #5883f1;
+  border: #0040dd;
+  color: #ffffff;
+  cursor: not-allowed;
+} 
+
+table {
+  border: white  solid 1px;
+}
+
+thead {
+  background-color: #006c54 ;
+}
+
+th , td {
+  width: 150px;
+  border: #00c390 solid 2px;
+}
+
+td {
+  text-align: center;
+}
