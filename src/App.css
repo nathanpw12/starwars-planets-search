@@ -61,6 +61,20 @@ input::placeholder {
   color: rgba(224, 249, 237, 0.665);
 }
 
+.value-fil {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.25em;
+  color: black;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  max-width: 7ch;
+  min-width: 1ch;
+  padding: 0.25em 0.5em;
+  width: 100%;
+}
+
+
 button {
   background-color: #0040dd;
   border: #0040dd;
@@ -69,33 +83,34 @@ button {
   padding: 5px 10px;
 }
 
-/* button:hover {
+button:hover {
   background-color: #3b518a;
   color: white;
   cursor: pointer;
 }
 
-button:disabled, button[ disabled ] {
-  background-color: #5883f1;
-  border: #0040dd;
-  color: white;
-  cursor: not-allowed;
-} */
-
 table {
-  border: white  solid 1px;
+  overflow-x: auto;
 }
 
 thead {
-  background-color: #00c390;
-}
-
-th, td {
-  border: #00c390 solid 2px;
-  width: 150px;
+  background-color: #121212;
 }
 
 td {
+  border-bottom: 1px solid #3f3f3f;
   text-align: center;
 }
 
+select {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  max-width: 20ch;
+  min-width: 8ch;
+  padding: 0.25em 0.5em;
+  width: 100%;
+}
