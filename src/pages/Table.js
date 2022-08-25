@@ -16,10 +16,17 @@ function Table() {
     comparison: 'maior que',
     value: '0',
   });
+  const [populationOption, setPopulationOption] = useState('population');
+
+  const [options, setOptions] = useState(
+    ['population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water'],
+  );
 
   const handleChange = ({ target }) => {
     const { name } = target;
     setSelectsFilter({ ...selectsFilter, [name]: target.value });
+    setOptions(options.filter((option) => option !== populationOption));
+    setPopulationOption('population');
   };
 
   return (
@@ -41,11 +48,15 @@ function Table() {
         onChange={ handleChange }
         data-testid="column-filter"
       >
-        <option value="population">population</option>
-        <option value="orbital_period">orbital_period</option>
-        <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation_period</option>
-        <option value="surface_water">surface_water</option>
+        {
+          options.map((option) => (
+            <option
+              key={ option }
+              value={ option }
+            >
+              {option}
+            </option>))
+        }
       </select>
 
       <select
