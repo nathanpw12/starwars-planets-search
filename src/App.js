@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import PlanetsProvider from './context/planetsProvider';
 import Table from './pages/Table';
 
 function App() {
   return (
-    <Table />
+    <PlanetsProvider>
+      <Table />
+    </PlanetsProvider>
   );
 }
 

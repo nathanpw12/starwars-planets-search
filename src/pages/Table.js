@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PlanetsContext from '../context/planetsContext';
 
 function Table() {
@@ -16,17 +16,34 @@ function Table() {
     comparison: 'maior que',
     value: '0',
   });
-  const [populationOption, setPopulationOption] = useState('population');
 
-  const [options, setOptions] = useState(
-    ['population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water'],
+  // const [populationOption, setPopulationOption] = useState('population');
+
+  // const [options, setOptions] = useState(
+  //   ['population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water'],
+  // );
+
+  const allOptions = [
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ];
+
+  const optionsFilter = allOptions.filter(
+    (column) => !numericFilter.some((options) => column === options.column),
   );
+
+  useEffect(() => {
+    setSelectsFilter((elements) => ({ ...elements, column: optionsFilter[0] }));
+  }, [numericFilter]);
 
   const handleChange = ({ target }) => {
     const { name } = target;
     setSelectsFilter({ ...selectsFilter, [name]: target.value });
-    setOptions(options.filter((option) => option !== populationOption));
-    setPopulationOption('population');
+    // setOptions(options.filter((option) => option !== populationOption));
+    // setPopulationOption('population');
   };
 
   return (
@@ -48,15 +65,11 @@ function Table() {
         onChange={ handleChange }
         data-testid="column-filter"
       >
-        {
-          options.map((option) => (
-            <option
-              key={ option }
-              value={ option }
-            >
-              {option}
-            </option>))
-        }
+        {optionsFilter.map((collumn) => (
+          <option key={ collumn } value={ collumn }>
+            {collumn}
+          </option>
+        ))}
       </select>
 
       <select
