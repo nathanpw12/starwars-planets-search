@@ -1,0 +1,21 @@
+@use 'variables' as *;
+
+body {
+  background-color: $accent-color;
+}
+
+.table {
+  color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  color: $text-color;
+  display: flex;
+  justify-content: space-around;
+  img {
+    size: 20px;
+  }
+}

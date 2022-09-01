@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PlanetsContext from '../context/planetsContext';
+import Header from './Header';
 
 function Table() {
   const { planetsList, getPlanets } = useContext(PlanetsContext);
@@ -48,104 +49,108 @@ function Table() {
 
   return (
     <div>
+      <Header />
+      <div className="inputs">
+        <input
+          type="text"
+          data-testid="name-filter"
+          placeholder="search for a planet by name here"
+          value={ filteredName }
+          onChange={ (e) => setFilteredName(e.target.value) }
+        />
 
-      <h1>StarWars Planets Search</h1>
+        <select
+          name="column"
+          value={ selectsFilter.column }
+          onChange={ handleChange }
+          data-testid="column-filter"
+        >
+          {optionsFilter.map((collumn) => (
+            <option key={ collumn } value={ collumn }>
+              {collumn}
+            </option>
+          ))}
+        </select>
 
-      <input
-        type="text"
-        data-testid="name-filter"
-        placeholder="search for a planet by name here"
-        value={ filteredName }
-        onChange={ (e) => setFilteredName(e.target.value) }
-      />
+        <select
+          name="comparison"
+          data-testid="comparison-filter"
+          value={ selectsFilter.comparison }
+          onChange={ handleChange }
+        >
+          <option value="maior que">maior que</option>
+          <option value="menor que">menor que</option>
+          <option value="igual a">igual a</option>
+        </select>
 
-      <select
-        name="column"
-        value={ selectsFilter.column }
-        onChange={ handleChange }
-        data-testid="column-filter"
-      >
-        {optionsFilter.map((collumn) => (
-          <option key={ collumn } value={ collumn }>
-            {collumn}
-          </option>
-        ))}
-      </select>
+        <input
+          type="number"
+          data-testid="value-filter"
+          className="value-fil"
+          name="value"
+          value={ selectsFilter.value }
+          onChange={ handleChange }
+        />
 
-      <select
-        name="comparison"
-        data-testid="comparison-filter"
-        value={ selectsFilter.comparison }
-        onChange={ handleChange }
-      >
-        <option value="maior que">maior que</option>
-        <option value="menor que">menor que</option>
-        <option value="igual a">igual a</option>
-      </select>
-
-      <input
-        type="number"
-        data-testid="value-filter"
-        className="value-fil"
-        name="value"
-        value={ selectsFilter.value }
-        onChange={ handleChange }
-      />
-
-      <button
-        type="button"
-        data-testid="button-filter"
-        onClick={ () => setNumericFilter([...numericFilter, selectsFilter]) }
-      >
-        Filtrar
-      </button>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Rotation Period</th>
-            <th>Orbital Period</th>
-            <th>Diameter</th>
-            <th>Climate</th>
-            <th>Gravity</th>
-            <th>Terrain</th>
-            <th>Surface Water</th>
-            <th>Population</th>
-            <th>Films</th>
-            <th>Created</th>
-            <th>Edited</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {planetsList
-            .filter((data) => data.name.includes(filteredName))
-            .filter((data) => numericFilter.every(({ column, comparison, value }) => {
-              if (comparison === 'menor que') {
-                return +data[column] < +value;
-              } if (comparison === 'maior que') {
-                return +data[column] > +value;
-              }
-              return +data[column] === +value;
-            }))
-            .map((data) => (
-              <tr key={ data.name }>
-                <td>{data.name}</td>
-                <td>{data.rotation_period}</td>
-                <td>{data.orbital_period}</td>
-                <td>{data.diameter}</td>
-                <td>{data.climate}</td>
-                <td>{data.gravity}</td>
-                <td>{data.terrain}</td>
-                <td>{data.surface_water}</td>
-                <td>{data.population}</td>
-                <td>{data.films}</td>
-                <td>{data.created}</td>
-                <td>{data.edite}</td>
-                <td>{data.url}</td>
-              </tr>))}
-        </tbody>
-      </table>
+        <button
+          type="button"
+          data-testid="button-filter"
+          onClick={ () => setNumericFilter([...numericFilter, selectsFilter]) }
+        >
+          Filtrar
+        </button>
+      </div>
+      <div className="table">
+        <div className="table-elements">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Rotation Period</th>
+                <th>Orbital Period</th>
+                <th>Diameter</th>
+                <th>Climate</th>
+                <th>Gravity</th>
+                <th>Terrain</th>
+                <th>Surface Water</th>
+                <th>Population</th>
+                <th>Films</th>
+                <th>Created</th>
+                <th>Edited</th>
+                <th>URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              {planetsList
+                .filter((data) => data.name.includes(filteredName))
+                .filter((data) => numericFilter.every(({ column, comparison, value }) => {
+                  if (comparison === 'menor que') {
+                    return +data[column] < +value;
+                  } if (comparison === 'maior que') {
+                    return +data[column] > +value;
+                  }
+                  return +data[column] === +value;
+                }))
+                .map((data) => (
+                  <tr key={ data.name }>
+                    <td>{data.name}</td>
+                    <td>{data.rotation_period}</td>
+                    <td>{data.orbital_period}</td>
+                    <td>{data.diameter}</td>
+                    <td>{data.climate}</td>
+                    <td>{data.gravity}</td>
+                    <td>{data.terrain}</td>
+                    <td>{data.surface_water}</td>
+                    <td>{data.population}</td>
+                    <td>{data.films}</td>
+                    <td>{data.created}</td>
+                    <td>{data.edite}</td>
+                    <td>{data.url}</td>
+                  </tr>))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

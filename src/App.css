@@ -40,18 +40,18 @@
   }
 }
 
-body {
-  background-color: #272a35;
+/* body {
+  background-color: #000000;
   color: white;
   font-family: Fira Code , Segoe UI , Tahoma , Geneva , Verdana , sans-serif;
-}
+} */
 
-input {
-  background-color: #006c54;
-  border: 2px solid #00c390;
+/* input {
+  background-color: #000000;
+  border: 2px solid #ffe64f;
   border-radius: 4px;
   box-sizing: border-box;
-  color: white;
+  color: #ffe64f;
   margin: 10px 0;
   padding: 8px 20px;
   width: 100%;
@@ -113,4 +113,4 @@ select {
   min-width: 8ch;
   padding: 0.25em 0.5em;
   width: 100%;
-}
+} */
