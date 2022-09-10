@@ -6,8 +6,8 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <div className="logo">
-          <img src={ starWarsIcon } alt="starWarsIcon" />
+        <div>
+          <img src={ starWarsIcon } alt="starWarsIcon" className="logo" />
         </div>
       </header>
 

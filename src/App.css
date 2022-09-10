@@ -40,14 +40,14 @@
   }
 }
 
-/* body {
-  background-color: #000000;
+body {
+  background-color: black;
   color: white;
   font-family: Fira Code , Segoe UI , Tahoma , Geneva , Verdana , sans-serif;
-} */
+}
 
-/* input {
-  background-color: #000000;
+input {
+  background-color: black;
   border: 2px solid #ffe64f;
   border-radius: 4px;
   box-sizing: border-box;
@@ -113,4 +113,9 @@ select {
   min-width: 8ch;
   padding: 0.25em 0.5em;
   width: 100%;
-} */
+}
+
+.logo {
+  height: 250px;
+  width: 500px;
+}
