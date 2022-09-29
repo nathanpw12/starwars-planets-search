@@ -16,4 +16,4 @@ Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua cr
 -->
 https://starwars-planets-search-rouge.vercel.app/
 
-<img src="https://prnt.sc/H9YfnlAAmnmN"></img>
+<img src="https://prnt.sc/H9YfnlAAmnmN" alt="teste"></img>
